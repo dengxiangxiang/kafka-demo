@@ -1,0 +1,14 @@
+
+# topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+# producer & consumer
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+
+# consumer with specific offset, partition, max-message
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest --partition 1 --max-messages 1
+
+# group consumer
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group group
