@@ -17,6 +17,7 @@ public class TransactionProducer {
         String topic = "test";
         props.put("bootstrap.servers", "localhost:9092");
         props.put("transactional.id", "my-transactional-id");
+
         Producer<String, String> producer = new KafkaProducer<>(props, new StringSerializer(), new StringSerializer());
 
         producer.initTransactions();

@@ -23,7 +23,7 @@ public class CustomProducer {
         props.put("delivery.timeout.ms",120000); // default 2min
 
         props.put("batch.size", 16384); // 16Kb
-        props.put("linger.ms", 0); // waiting for batch before sending out
+        props.put("linger.ms", 50); // waiting for batch before sending out
 
         props.put("buffer.memory", 33554432); //total bytes of memory the producer can use to buffer records waiting to be sent to the server
         props.put("max.block.ms",60000); //1min, how long the methods send() or partitionsFor() will block because the buffer is full or metadata is unavailable
